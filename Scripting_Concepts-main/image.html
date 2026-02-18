@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Validation</title>
+</head>
+<body>
+
+<form onsubmit="return validateForm()">
+
+    Select Image:
+    <input type="file" id="img">
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<script>
+function validateForm() {
+
+    var img = document.getElementById("img").value;
+
+    if (img == "") {
+        alert("Please select an image");
+        return false;
+    }
+
+    var ext = img.substring(img.lastIndexOf('.') + 1).toLowerCase();
+
+    if (ext != "jpg" && ext != "jpeg" && ext != "png" && ext != "gif") {
+        alert("Only image files (jpg, jpeg, png, gif) are allowed");
+        return false;
+    }
+
+    alert("Image Uploaded Successfully");
+    return true;
+}
+</script>
+
+</body>
+</html>

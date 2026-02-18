@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Diamond Pattern</title>
+</head>
+<body>
+<script>
+let n = parseInt(prompt("Enter number of rows:"));
+
+function diamondpattern() {
+    // Upper half
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= n - i; j++) {
+            document.write("&nbsp;&nbsp;");
+        }
+        for (let j = 1; j <= i; j++) {
+            document.write("*");
+        }
+        for (let j = 2; j <= i; j++) {
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+    // Lower half
+    for (let i = n - 1; i >= 1; i--) {
+        for (let j = 1; j <= n - i; j++) {
+            document.write("&nbsp;&nbsp;");
+        }
+        for (let j = 1; j <= i; j++) {
+            document.write("*");
+        }
+        for (let j = 2; j <= i; j++) {
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+}
+diamondpattern();
+</script>
+</body>
+</html>

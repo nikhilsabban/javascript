@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Switch Case Calculator</title>
+</head>
+<body>
+
+<script>
+let a = parseInt(prompt("Enter first number:"));
+let b = parseInt(prompt("Enter second number:"));
+
+let choice = prompt(
+    "Choose operation:\n" +
+    "1. Add\n" +
+    "2. Subtract\n" +
+    "3. Multiply\n" +
+    "4. Divide"
+);
+
+switch (choice) {
+    case "1":
+        document.write("Addition = " + (a + b));
+        break;
+
+    case "2":
+        document.write("Subtraction = " + (a - b));
+        break;
+
+    case "3":
+        document.write("Multiplication = " + (a * b));
+        break;
+
+    case "4":
+        if (b === 0) {
+            document.write("Division by zero is not allowed");
+        } else {
+            document.write("Division = " + (a / b));
+        }
+        break;
+
+    default:
+        document.write("Invalid choice");
+}
+</script>
+
+</body>
+</html>

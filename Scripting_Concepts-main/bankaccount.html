@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Bank Account Class</title>
+</head>
+<body>
+<h2>Bank Account Details</h2>
+<script>
+class BankAccount {
+    constructor(accountHolderName, accountNumber, balance) {
+        this.accountHolderName = accountHolderName;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    deposit(amount) {
+        this.balance += amount;
+        document.write("Deposited Amount: ₹" + amount + "<br>");
+        document.write("Updated Balance: ₹" + this.balance + "<br><br>");
+    }
+
+    withdraw(amount) {
+        if (amount <= this.balance) {
+            this.balance -= amount;
+            document.write("Withdrawn Amount: ₹" + amount + "<br>");
+            document.write("Updated Balance: ₹" + this.balance + "<br><br>");
+        } else {
+            document.write("Insufficient Balance<br><br>");
+        }
+    }
+
+    display() {
+        document.write("Account Holder Name: " + this.accountHolderName + "<br>");
+        document.write("Account Number: " + this.accountNumber + "<br>");
+        document.write("Current Balance: ₹" + this.balance + "<br><br>");
+    }
+}
+
+let acc1 = new BankAccount("Ayush Chavan", 12345, 5000);
+
+acc1.display();
+acc1.deposit(2000);
+acc1.withdraw(3000);
+</script>
+</body>
+</html>

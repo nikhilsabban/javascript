@@ -1,0 +1,47 @@
+// 1. Design a web page using HTML and JavaScript to demonstrate exception handling. The program should divide two numbers and handle the exception when the
+// denominator is zero using try, catch. and finally.Display an appropriate error message if an exception occurs
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exception Handling - Division</title>
+</head>
+<body>
+
+<h2>Division using Exception Handling</h2>
+
+Enter Numerator:
+<input type="number" id="num1"><br><br>
+
+Enter Denominator:
+<input type="number" id="num2"><br><br>
+
+<button onclick="divide()">Divide</button>
+
+<p id="result"></p>
+
+<script>
+function divide() {
+    try {
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
+
+        if (b === 0) {
+            throw "Denominator cannot be zero";
+        }
+
+        let result = a / b;
+        document.getElementById("result").innerHTML =
+            "Result: " + result;
+    }
+    catch (error) {
+        document.getElementById("result").innerHTML =
+            "Error: " + error;
+    }
+    finally {
+        console.log("Division operation attempted");
+    }
+}
+</script>
+
+</body>
+</html>

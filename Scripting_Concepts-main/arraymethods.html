@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Array Methods</title>
+</head>
+<body>
+<script>
+let arr = [10, 20, 30, 40, 50];
+
+document.write("<h3>Original Array:</h3>");
+document.write(arr + "<br><br>");
+
+//1. push()
+arr.push(60);
+document.write("After push(60): " + arr + "<br>");
+
+// 2. pop() 
+arr.pop();
+document.write("After pop(): " + arr + "<br>");
+
+// 3. unshift() 
+arr.unshift(5);
+document.write("After unshift(5): " + arr + "<br>");
+
+// 4. shift() 
+arr.shift();
+document.write("After shift(): " + arr + "<br>");
+
+// 5. length 
+document.write("Array length: " + arr.length + "<br>");
+
+// 6. indexOf()
+document.write("Index of 30: " + arr.indexOf(30) + "<br>");
+
+// 7. concat()
+let arr2 = [70, 80];
+let newArr = arr.concat(arr2);
+document.write("After concat: " + newArr + "<br>");
+
+// 8. join() 
+document.write("After join('-'): " + arr.join("-") + "<br>");
+
+// 9. forEach()
+document.write("Using forEach():<br>");
+arr.forEach(function(value) {
+    document.write(value + "<br>");
+});
+</script>
+</body>
+</html>

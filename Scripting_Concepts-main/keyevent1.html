@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard characters</title>
+</head>
+<body>
+    <input type="text" onkeydown="Show(event)">
+    <p>Count:<span id="cou">0</span></p>
+    <script>
+        let count = 0;
+        function Show(event){
+            if(event.key >= 'a' && event.key <= 'z' || event.key >= 'A' && event.key <= 'Z'){
+                count++;
+            }
+           else if(event.key === "Backspace" && count > 0) count--;
+            console.log(count)
+            document.getElementById("cou").innerHTML = count;
+        }
+    </script>
+</body>
+</html>
