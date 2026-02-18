@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rectangle Area</title>
+</head>
+<body>
+
+<script>
+class Rectangle {
+    constructor(length, width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    calculateArea() {
+        return this.length * this.width;
+    }
+}
+
+// Taking input from user
+let length = parseFloat(prompt("Enter length of rectangle:"));
+let width = parseFloat(prompt("Enter width of rectangle:"));
+
+// Creating object
+let rect = new Rectangle(length, width);
+
+// Display result
+alert("Area of Rectangle = " + rect.calculateArea());
+</script>
+
+</body>
+</html>

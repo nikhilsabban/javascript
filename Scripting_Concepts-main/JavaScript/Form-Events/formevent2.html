@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Event</title>
+</head>
+<body>
+
+    Enter Name:
+    <input type="text" 
+           onfocus="showEnter()" 
+           onblur="showLeave()">
+
+    <script>
+        function showEnter() {
+            alert("Cursor entered the input field");
+        }
+
+        function showLeave() {
+            alert("Cursor left the input field");
+        }
+    </script>
+
+</body>
+</html>

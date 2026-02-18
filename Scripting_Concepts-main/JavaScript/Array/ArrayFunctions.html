@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Functions</title>
+</head>
+<body>
+
+<script>
+let arr = ["Apple", "Mango", "Banana"];
+
+document.write("Original Array: " + arr + "<br><br>");
+
+arr.push("Orange");
+document.write("After push(): " + arr + "<br>");
+
+arr.pop();
+document.write("After pop(): " + arr + "<br>");
+
+arr.unshift("Grapes");
+document.write("After unshift(): " + arr + "<br>");
+
+arr.shift();
+document.write("After shift(): " + arr + "<br>");
+
+document.write("Length of array: " + arr.length + "<br>");
+
+document.write("Index of Mango: " + arr.indexOf("Mango") + "<br>");
+
+let arr2 = ["Pineapple", "Kiwi"];
+let newArr = arr.concat(arr2);
+document.write("After concat(): " + newArr + "<br>");
+
+document.write("After join(): " + newArr.join(" - ") + "<br>");
+</script>
+
+</body>
+</html>

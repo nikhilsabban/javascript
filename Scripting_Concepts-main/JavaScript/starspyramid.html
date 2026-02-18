@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stars pyramid</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Enter the number of levels"));;
+
+for (let i = 1; i <= n; i++) {
+    let row = "";
+
+    for (let s = 1; s <= n - i; s++) {
+        row += " ";
+    }
+
+    for (let j = 1; j <= i; j++) {
+        row += "* ";
+    }
+
+    console.log(row);
+}
+
+    </script>
+</body>
+</html>
