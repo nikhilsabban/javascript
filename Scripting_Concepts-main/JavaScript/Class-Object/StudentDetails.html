@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body>
+
+<script>
+class Student {
+    constructor(name, age, course) {
+        this.name = name;
+        this.age = age;
+        this.course = course;
+    }
+
+    display() {
+        alert(
+            "Student Details:\n" +
+            "Name: " + this.name + "\n" +
+            "Age: " + this.age + "\n" +
+            "Course: " + this.course
+        );
+    }
+}
+
+// Accepting details from user
+let name = prompt("Enter Student Name:");
+let age = prompt("Enter Student Age:");
+let course = prompt("Enter Course Name:");
+
+// Creating object
+let s1 = new Student(name, age, course);
+
+// Displaying details
+s1.display();
+</script>
+
+</body>
+</html>

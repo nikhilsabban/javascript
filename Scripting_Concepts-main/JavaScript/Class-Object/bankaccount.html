@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankaccout details</title>
+</head>
+<body>
+    <script>
+        class Bankaccount{
+            constructor(name,balance){
+                this.name = name;
+                this.balance = balance;
+            }
+
+            deposit(){
+                let a = parseInt(prompt("Enter the amount to deposit"));
+                this.balance = this.balance + a;
+                alert(""+a+" Deposited successfully");
+            }
+            withdraw(){
+                let b = parseInt(prompt("Balance:"+this.balance+"\nEnter the amount to withdraw from your account"));
+                if(b <= this.balance){
+                    this.balance = this.balance - b;
+                    alert(""+b+" withdraw successfully \nBalance:"+this.balance);
+                }
+                else{
+                    alert("Insufficient Funds");
+                }
+            }
+            display(){
+                console.log("Name of account holder:"+this.name);
+                console.log("total balance:"+this.balance);
+            }
+        }
+
+        let name = prompt("Enter the name");
+        let balance = parseInt(prompt("Enter your balance"));
+        let c1 = new Bankaccount(name,balance);
+        c1.display();
+        c1.deposit();
+        c1.display();
+        c1.withdraw();
+        c1.display();
+    </script>
+</body>
+</html>

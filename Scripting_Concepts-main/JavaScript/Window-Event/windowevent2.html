@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resize</title>
+</head>
+<body>
+     <h2>Resize the browser window</h2>
+     <p id="size"></p>
+
+    <script>
+        function showSize() {
+        document.getElementById("size").innerText =
+            "Width: " + window.innerWidth + " Height: " + window.innerHeight;
+        }
+
+        window.onresize = showSize;
+        showSize();
+    </script>
+</body>
+</html>

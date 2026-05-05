@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Validation</title>
+</head>
+<body>
+
+<form onsubmit="return validateImage()">
+    
+    Select Image:
+    <input type="file" id="img">
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<script>
+function validateImage() {
+
+    var file = document.getElementById("img").files[0];
+
+    // Check if file selected
+    if (!file) {
+        alert("Please select an image");
+        return false;
+    }
+
+    // Check file type
+    if (!file.type.startsWith("image/")) {
+        alert("Only image files are allowed");
+        return false;
+    }
+
+    alert("Image Uploaded Successfully");
+    return true;
+}
+</script>
+
+</body>
+</html>
