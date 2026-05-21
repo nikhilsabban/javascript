@@ -1,0 +1,48 @@
+<!-- 18. Write a JavaScript program to validate a form. Check that username and 
+password fields are not empty and display an alert if validation fails.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Login Form</h2>
+
+    <form onsubmit="return validateForm()">
+        <input type="text" id="username">
+        <br><br>
+
+        <input type="password" id="password">
+
+        <input type="submit" value="submit">
+    </form>
+
+    <script>
+        function validateForm()
+        {
+            let username=document.getElementById("username").value;
+
+            let password=document.getElementById("password").value;
+
+            if(username==" "||password=="")
+            {
+            alert("Username and password cannot be empty");
+            return false
+            }
+            
+            if(password.length < 6)
+            {
+                alert("Password must be at least 6 latters");
+                return false;
+            }
+
+            alert("login successfull");
+            return true;
+        }
+    </script>
+</body>
+</html>

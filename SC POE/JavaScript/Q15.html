@@ -1,0 +1,30 @@
+<!-- 15. Develop a program that detects when a key is pressed (keydown) and when 
+it is released (keyup) and displays both actions. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Press Any Key</h2>
+    
+    <h3 id="output"></h3>
+
+    <Script>
+        let output = document.getElementById("output")
+
+        document.addEventListener("keydown",function(event){
+            output.innerHTML ="Key Pressed: "+event.key;
+        });
+
+        document.addEventListener("keyup",function(event){
+            output.innerHTML="Key Released: "+event.key;
+        });
+    </Script>
+
+</body>
+</html>

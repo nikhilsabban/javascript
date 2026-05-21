@@ -1,0 +1,27 @@
+<!-- 21. Develop a program that counts the number of characters entered in a 
+textarea and displays it dynamically.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Character Count</h2>
+    <textarea  id="txt" rows="5" cols="5"></textarea>
+    <h3 id="output">Characters: 0</h3>
+
+    <script>
+        let txt=document.getElementById("txt");
+        let output = document.getElementById("output");
+
+        txt.addEventListener("keyup",function(){
+            let count = txt.value.length;
+
+            output.innerHTML="Characters: "+count;
+        })
+    </script>
+</body>
+</html>

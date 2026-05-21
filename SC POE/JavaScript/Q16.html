@@ -1,0 +1,27 @@
+<!-- 16. Create a JavaScript program where a button changes color on mouse 
+hover and displays a message on click.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click ME</button>
+
+    <script>
+        let btn=document.getElementById("btn");
+
+        btn.addEventListener("mouseover",function(){
+            btn.style.backgroundColor="red";
+        })
+
+        btn.addEventListener("click",function(){
+            alert("Button Clicked");
+        })
+
+    </script>
+</body>
+</html>

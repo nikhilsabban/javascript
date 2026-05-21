@@ -1,0 +1,34 @@
+<!-- 19. Write a JavaScript program that displays the selected value from a 
+dropdown menu. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Select a course</h2>
+    <select  id="course" onchange="showValue()">
+
+        <option value="">Select</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+
+    </select>
+
+    <h3 id="output"></h3>
+    <script>
+        function showValue()
+        {
+            let course=document.getElementById("course");
+
+            document.getElementById("output").innerHTML =
+            "Selected value :"+ course.value
+        }
+    </script>
+</body>
+</html>

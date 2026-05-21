@@ -1,0 +1,31 @@
+<!-- 13. Develop a program where an input field changes background color on 
+focus and displays typed text on keypress.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2>Event Handling explample</h2>
+
+    <input type="text" id="txt" placeholder="type something">
+    <h3 id="output"></h3>
+
+    <script>
+
+        let input=document.getElementById("txt");
+        let output=document.getElementById("output");
+
+        input.addEventListener("focus",function(){
+            input.style.backgroundColor ="yellow";
+        })
+
+        input.addEventListener("keypress",function(){
+            output.innerHTML=input.value;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- 14. Create a program where text changes color on mouse over and changes 
+size on double click. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="txt">Hello JavaScript</h2>
+    <script>
+        let txt=document.getElementById("txt");
+
+        txt.addEventListener("mouseover",function(){
+            txt.style.color="red";
+        })
+
+        txt.addEventListener("dblclick",function(){
+            txt.style.fontSize = "40px";
+        })
+    </script>
+</body>
+</html>
