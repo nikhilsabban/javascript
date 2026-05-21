@@ -1,0 +1,1610 @@
+SCRIPTING CONCEPTS — PRACTICAL EXAM PROGRAMS
+Questions from PDF  +  Answers from ZIP
+================================================================================
+
+================================================================================
+Q1.
+[Language: Dart]
+
+QUESTION:
+Create a Dart class that stores student attendance percentage and uses if-else control statements to display:
+  - Eligible for Exam if attendance >= 75%
+  - Not Eligible if attendance < 75%
+
+ANSWER (Code):
+------------------------------------------------------------
+// 1.  Create a Dart class that stores student attendance percentage and uses 
+// if-else control statements to display: 
+// Eligible for Exam if attendance ≥ 75% 
+// Not Eligible if attendance < 75% 
+
+import 'dart:io';
+
+class Student{
+
+    double attendence;
+
+    Student(this.attendence);
+
+    void CheckEligibility()
+    {
+      if (attendence >= 75)
+      {
+        print("You are eligible for exam ");
+      }
+      else{
+        print("You are not eligible");
+      }
+    }
+}
+
+void main()
+{
+
+  print("Enter your attendence percentage....");
+  double attendence =  double.parse(stdin.readLineSync()!);
+
+  Student s1 = Student(attendence);
+  s1.CheckEligibility();
+  
+}
+------------------------------------------------------------
+
+================================================================================
+Q2.
+[Language: Dart]
+
+QUESTION:
+Create a Dart class that calculates the sum of numbers from 1 to N using a loop and displays the result using an object.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 2.  Create a Dart class that calculates the sum of numbers from 1 to N 
+// using a loop and displays the result using an object. 
+
+import 'dart:io';
+
+class SumNatural{
+
+  int n;
+
+  SumNatural(this.n);
+
+  void CalculateSum()
+  {
+    int sum=0;
+    for(int i=1;i<=n;i++)
+    {
+        sum = sum+i;
+    }
+
+    print("Sum:${sum}");
+  }
+
+}
+
+void main()
+{
+  print("Enter a number");
+  int n= int.parse(stdin.readLineSync()!);
+
+  SumNatural sum=SumNatural(n);
+
+  sum.CalculateSum();
+}
+------------------------------------------------------------
+
+================================================================================
+Q3.
+[Language: Dart]
+
+QUESTION:
+Create an Employee class with employee name and salary. Use a control statement to display "High Salary" if salary > 50000, otherwise "Normal Salary".
+
+ANSWER (Code):
+------------------------------------------------------------
+// 3.  Create an Employee class with employee name and salary. Use a 
+// control statement to display "High Salary" if salary > 50000, otherwise 
+// "Normal Salary".
+
+import 'dart:io';
+
+class employee{
+
+  double salary;
+  String name;
+
+  employee(this.name,this.salary);
+
+  void checkSalary()
+  {
+    if (salary > 50000)
+    {
+      print("Salary is high");
+    }
+    else{
+      print("Normal salary");
+    }
+  }
+}
+
+void main()
+{
+  print("Enter Your Name:");
+  String name=stdin.readLineSync()!;
+
+  print("Enter salary:");
+  double salary = double.parse(stdin.readLineSync()!);
+
+  employee emp=employee(name, salary);
+
+  emp.checkSalary();
+
+
+}
+------------------------------------------------------------
+
+================================================================================
+Q4.
+[Language: Dart]
+
+QUESTION:
+Write a Dart program using a class that takes a number as input and prints its multiplication table using a for loop.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 4.  Write a Dart program using a class that takes a number as input and 
+// prints its multiplication table using a for loop. 
+
+import 'dart:io';
+
+class Table{
+
+  int n;
+  Table(this.n);
+
+  void printTable()
+  {
+    for(int i=0;i<=10;i++)
+    {
+      print("$n x $i = ${n*i}");
+    }
+  }
+}
+
+void main()
+{
+  print("Enter number to print table");
+  int n = int.parse(stdin.readLineSync()!);
+
+  Table t = Table(n);
+
+  t.printTable();
+}
+------------------------------------------------------------
+
+================================================================================
+Q5.
+[Language: Dart]
+
+QUESTION:
+Create a Student class in Dart that stores student name and marks of three subjects. Use if-else control statements to calculate the total, average, and grade of the student.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 5.  Create a Student class in Dart that stores student name and marks of 
+// three subjects. Use if-else control statements to calculate the total, 
+// average, and grade of the student. 
+
+import 'dart:io';
+class student{
+
+    String name;
+    double m1,m2,m3;
+
+    student(this.name,this.m1,this.m2,this.m3);
+
+    void result(){
+
+      double total = m1+m2+m3;
+      double average = total/3;
+
+      if(average >= 75)
+      {
+        print("Grade A");
+      }
+      else if(average >=60)
+      {
+        print("Grade B");
+      }
+      else{
+        print("Grade c");
+      }
+    }
+}
+
+void main()
+{
+
+  String name;
+  double m1,m2,m3;
+
+  print("Enter your name:");
+  name = stdin.readLineSync()!;
+
+  print("Enter your mark1:");
+  m1=double.parse(stdin.readLineSync()!);
+
+  print("Enter your mark2:");
+  m2=double.parse(stdin.readLineSync()!);
+
+  print("Enter your mark3:");
+  m3=double.parse(stdin.readLineSync()!);
+
+  student s1=student(name, m1, m2, m3);
+
+  s1.result();
+
+}
+------------------------------------------------------------
+
+================================================================================
+Q6.
+[Language: TypeScript]
+
+QUESTION:
+Create a Contact Management System using TypeScript where users can add, search, display, and delete contacts.
+
+ANSWER (Code):
+------------------------------------------------------------
+let contacts:any[]=[];
+let choice:string|null;
+
+do{
+    choice = prompt(
+        "Contact Management System \n"+
+        "1.Add Contact \n"+
+        "2.Display Contact \n"+
+        "3.Search Contact \n"+
+        "4.Delete Contact \n"+
+        "5.End Program.\n"+
+        "Enter Your Choice:"
+    );
+
+
+    switch(choice){
+
+        case "1":
+
+        let name=prompt("Enter your name:");
+        let phone=prompt("Enter your phone");
+
+        contacts.push({
+            name:name,
+            phone:phone
+        });
+
+        alert("Contact added")
+        break;
+
+        case "2":
+            let result = "Contact List \n";
+
+            for (let contact of contacts){
+                result += contact.name +" -"+contact.phone+"\n";
+            }
+
+            alert(result);
+            break;
+
+        case "3":
+            let searchName = prompt("Enter name to search contact");
+            let found = false;
+
+            for(let contact of  contacts)
+            {
+                if(contact.name === searchName)
+                {
+                    alert("Found: "+contact.name+"-"+contact.phone);
+                    found=true
+                    break;
+                }
+            }
+            if(!found)
+            {
+                alert("contact is not found");
+            }
+
+        case "4":
+            let deletename = prompt("Enter name to delete: ");
+
+            contacts = contacts.filter(
+                contact => contact.name != deletename
+            );
+            alert("Contact deleted.");
+            break;
+
+        case "5":
+            alert("Program Ended.");
+            break;
+
+        default:
+            alert("Invalid choice.");
+
+    }
+
+}while(choice != "5");
+------------------------------------------------------------
+
+================================================================================
+Q7.
+[Language: TypeScript]
+
+QUESTION:
+Develop a To-Do List application using TypeScript where users can add tasks, view tasks, mark tasks as completed, and delete tasks.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 7. Develop a To-Do List application using TypeScript where users can add 
+// tasks, view tasks, mark tasks as completed, and delete tasks.
+
+let tasks : any[]=[];
+let Choice: String|null;
+
+do{
+    Choice=prompt(
+        "TO-DO_List\n"+
+        "1.Add Task\n"+
+        "2.Show Task\n"+
+        "3.Complete Task\n"+
+        "4.Delete Task\n"+
+        "5.Exit\n"+
+        "Enter your Choice"
+    );
+
+    switch(Choice){
+
+        case "1":
+            let taskName= prompt("Enter Task..");
+
+            tasks.push({
+                task: taskName,
+                completed: false
+            });
+
+
+            alert("Task is added ");
+            break;
+
+        case "2":
+            let result = "Task List \n\n";
+
+            for(let i=0;i<tasks.length;i++)
+            {
+                result += (i+1)+"."+tasks[i].task+"-"+
+                (tasks[i].completed ? "Completed" : "Pending.." )+"\n";
+            }   
+
+            alert(result);
+            break;
+
+        case "3":
+            let completedTask = prompt("Enter task name to complete:");
+
+            for (let task of tasks)
+            {
+                if(task.task === completedTask)
+                {
+                    task.completed=true;
+                    alert("Task is completed");
+                }
+            }
+            break;
+
+        case "4":
+            let deletedTask = prompt("Enter task Name to delete:");
+
+            tasks = tasks.filter(
+                task => task.task != deletedTask
+            );
+
+            alert("Task is deleted");
+            break;
+
+        case "5":
+            alert("Program ended");
+            break;
+
+        default:
+            alert("Invalid Choice");
+    }
+
+
+}while(Choice != "5")
+------------------------------------------------------------
+
+================================================================================
+Q8.
+[Language: TypeScript]
+
+QUESTION:
+Develop a calculator using TypeScript that performs addition, subtraction, multiplication, and division based on user input.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 8. Develop a calculator using TypeScript that performs addition, 
+// subtraction, multiplication, and division based on user input.
+
+
+let num1= Number(prompt("Enter first number :"));
+let num2=Number(prompt("Enter second number"));
+
+let choice=prompt(
+    "calculator Menu\n"+
+    "1.addition\n"+
+    "2.subtraction\n"+
+    "3.multiplication\n"+
+    "4.division\n"+
+    "Enter your choice"
+);
+
+let result;
+
+switch(choice){
+
+    case "1":
+        result = num1+num2;
+        alert("Addition: "+result);
+        break;
+
+    
+    case "2":
+        result = num1-num2;
+        alert("Substraction: "+result);
+        break;
+
+    
+    case "3":
+        result = num1*num2;
+        alert("Multiplication: "+result);
+        break;
+
+    
+    case "4":
+        result = num1/num2;
+        alert("Division: "+result);
+        break;
+}
+------------------------------------------------------------
+
+================================================================================
+Q9.
+[Language: TypeScript]
+
+QUESTION:
+Develop a TypeScript class for Student Result that stores marks and calculates the grade using if-else or switch control statements.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 9.  Develop a TypeScript class for Student Result that stores marks and 
+// calculates the grade using if-else or switch control statements.
+
+class Student{
+
+    marks:number;
+
+    constructor(marks:number){
+        this.marks=marks;
+    }
+
+    calculate()
+    {
+        if(this.marks >= 75)
+        {
+            alert("Grade A");
+        }
+        else if(this.marks >= 50)
+        {
+            alert("Grade B")
+        }
+        else
+        {
+            alert("Grade C")
+        }
+    }
+}
+
+let marks = Number(prompt("Enter Marks: "));
+
+let s=new Student(marks);
+
+s.calculate()
+------------------------------------------------------------
+
+================================================================================
+Q10.
+[Language: TypeScript]
+
+QUESTION:
+Create an Employee class with properties like employee name and salary. Use a control statement to check if the salary is greater than a certain amount and print "High Salary" or "Low Salary".
+
+ANSWER (Code):
+------------------------------------------------------------
+// 10.  Create an Employee class with properties like employee name and 
+// salary. Use a control statement to check if the salary is greater than a 
+// certain amount and print "High Salary" or "Low Salary".
+
+class Employee{
+    name:string;
+    salary:number;
+
+    constructor(name:string,salary:number)
+    {
+        this.name=name;
+        this.salary=salary;
+    }
+
+    checkSalary()
+    {
+        if(this.salary >= 50000)
+        {
+            alert("High Salary");
+        }
+        else{
+            alert("Low Salary");
+        }
+    }
+}
+
+let empname = prompt("Enter Your Name: ")||"";
+let salary= Number(prompt("Enter Your Salary: "));
+
+let emp = new Employee(empname,salary);
+
+emp.checkSalary();
+------------------------------------------------------------
+
+================================================================================
+Q11.
+[Language: TypeScript]
+
+QUESTION:
+Create a TypeScript class that checks whether numbers from 1 to 20 are even or odd using a loop and if-else statement. Display the result using an object of the class.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 11.  Create a TypeScript class that checks whether numbers from 1 to 20 
+// are even or odd using a loop and if-else statement. Display the result 
+// using an object of the class. 
+
+
+class NumberCheck{
+
+    checknumber()
+    {
+        let result = ""
+
+        for(let i=0;i<=20;i++)
+        {
+            if(i % 2 == 0)
+            {
+                result += i + " is Even\n";
+            }
+            else
+            {
+                result+= i + " is Odd\n";
+            }
+        }
+
+        alert(result)
+    }
+}
+
+let obj = new NumberCheck();
+obj.checknumber();
+------------------------------------------------------------
+
+================================================================================
+Q12.
+[Language: TypeScript]
+
+QUESTION:
+Create a Student class in TypeScript that stores student name and marks of three subjects. Use if-else control statements to determine whether the student has passed or failed and display the result.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 12. Create a Student class in TypeScript that stores student name and marks 
+// of three subjects. Use if-else control statements to determine whether the 
+// student has passed or failed and display the result. 
+
+class Student{
+    name:string|null;
+    m1:number;
+    m2:number;
+    m3:number;
+
+    constructor(name:string,m1:number,m2:number,m3:number)
+    {
+        this.name=name;
+        this.m1=m1;
+        this.m2=m2;
+        this.m3=m3;
+    }
+
+    checkResult()
+    {
+        let total=this.m1+this.m2+this.m3;
+        let average = total/3;
+
+        if(average >=35)
+        {
+            alert(this.name+" is passed");
+        }
+        else{
+            alert(this.name+" is failed");
+        }
+    }
+}
+
+let s1name=prompt("Enter name of student:") || "";
+let mark1=Number(prompt("Enter mark 1:"));
+let mark2=Number(prompt("Enter mark 2:"));
+let mark3=Number(prompt("Enter mark 3:"));
+
+let ob1=new Student(s1name,mark1,mark2,mark3);
+
+ob1.checkResult();
+------------------------------------------------------------
+
+================================================================================
+Q13.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Develop a program where an input field changes background color on focus and displays typed text on keypress.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 13. Develop a program where an input field changes background color on 
+focus and displays typed text on keypress.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2>Event Handling explample</h2>
+
+    <input type="text" id="txt" placeholder="type something">
+    <h3 id="output"></h3>
+
+    <script>
+
+        let input=document.getElementById("txt");
+        let output=document.getElementById("output");
+
+        input.addEventListener("focus",function(){
+            input.style.backgroundColor ="yellow";
+        })
+
+        input.addEventListener("keypress",function(){
+            output.innerHTML=input.value;
+        })
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q14.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Create a program where text changes color on mouse over and changes size on double click.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 14. Create a program where text changes color on mouse over and changes 
+size on double click. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="txt">Hello JavaScript</h2>
+    <script>
+        let txt=document.getElementById("txt");
+
+        txt.addEventListener("mouseover",function(){
+            txt.style.color="red";
+        })
+
+        txt.addEventListener("dblclick",function(){
+            txt.style.fontSize = "40px";
+        })
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q15.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Develop a program that detects when a key is pressed (keydown) and when it is released (keyup) and displays both actions.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 15. Develop a program that detects when a key is pressed (keydown) and when 
+it is released (keyup) and displays both actions. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Press Any Key</h2>
+    
+    <h3 id="output"></h3>
+
+    <Script>
+        let output = document.getElementById("output")
+
+        document.addEventListener("keydown",function(event){
+            output.innerHTML ="Key Pressed: "+event.key;
+        });
+
+        document.addEventListener("keyup",function(event){
+            output.innerHTML="Key Released: "+event.key;
+        });
+    </Script>
+
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q16.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Create a JavaScript program where a button changes color on mouse hover and displays a message on click.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 16. Create a JavaScript program where a button changes color on mouse 
+hover and displays a message on click.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click ME</button>
+
+    <script>
+        let btn=document.getElementById("btn");
+
+        btn.addEventListener("mouseover",function(){
+            btn.style.backgroundColor="red";
+        })
+
+        btn.addEventListener("click",function(){
+            alert("Button Clicked");
+        })
+
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q17.
+[Language: TypeScript]
+
+QUESTION:
+Write a TypeScript program to calculate the sum of all elements in an array.
+
+ANSWER (Code):
+------------------------------------------------------------
+// 17. Write a TypeScript program to calculate the sum of all elements in an 
+// array.
+
+
+let arr:number[]=[10,20,30,40,50];
+
+let sum=0;
+
+for(let i=0;i<arr.length;i++)
+{
+    sum = sum + arr[i]
+}
+
+alert("Sum: "+sum)
+------------------------------------------------------------
+
+================================================================================
+Q18.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Write a JavaScript program to validate a form. Check that username and password fields are not empty and display an alert if validation fails.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 18. Write a JavaScript program to validate a form. Check that username and 
+password fields are not empty and display an alert if validation fails.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Login Form</h2>
+
+    <form onsubmit="return validateForm()">
+        <input type="text" id="username">
+        <br><br>
+
+        <input type="password" id="password">
+
+        <input type="submit" value="submit">
+    </form>
+
+    <script>
+        function validateForm()
+        {
+            let username=document.getElementById("username").value;
+
+            let password=document.getElementById("password").value;
+
+            if(username==" "||password=="")
+            {
+            alert("Username and password cannot be empty");
+            return false
+            }
+            
+            if(password.length < 6)
+            {
+                alert("Password must be at least 6 latters");
+                return false;
+            }
+
+            alert("login successfull");
+            return true;
+        }
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q19.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Write a JavaScript program that displays the selected value from a dropdown menu.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 19. Write a JavaScript program that displays the selected value from a 
+dropdown menu. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Select a course</h2>
+    <select  id="course" onchange="showValue()">
+
+        <option value="">Select</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+
+    </select>
+
+    <h3 id="output"></h3>
+    <script>
+        function showValue()
+        {
+            let course=document.getElementById("course");
+
+            document.getElementById("output").innerHTML =
+            "Selected value :"+ course.value
+        }
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q20.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Create a JavaScript program to sort an array of numbers in ascending and descending order.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr=[2,5,4,3,1,6];
+
+        //ascending
+        for(let i=0;i<arr.length;i++)
+        {
+            for(let j=i+1;j<arr.length;j++)
+            {
+                if(arr[i]>arr[j])
+                {
+                    let temp=arr[i]
+                    arr[i]=arr[j]
+                    arr[j]=temp
+                }
+            }
+        }
+
+        alert("Ascending Order: "+arr);
+
+        //descending
+        for(let i=0;i<arr.length;i++)
+        {
+            for(let j=i+1;j<arr.length;j++)
+            {
+                if(arr[i]<arr[j])
+                {
+                    let temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        alert("Descending Order: " + arr);
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q21.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Develop a program that counts the number of characters entered in a textarea and displays it dynamically.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 21. Develop a program that counts the number of characters entered in a 
+textarea and displays it dynamically.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Character Count</h2>
+    <textarea  id="txt" rows="5" cols="5"></textarea>
+    <h3 id="output">Characters: 0</h3>
+
+    <script>
+        let txt=document.getElementById("txt");
+        let output = document.getElementById("output");
+
+        txt.addEventListener("keyup",function(){
+            let count = txt.value.length;
+
+            output.innerHTML="Characters: "+count;
+        })
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q22.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Create a JavaScript program to calculate simple interest using user input.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 22. Create a JavaScript program to calculate simple interest using user input.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p=Number(prompt("Enter Principal Amount: "));
+
+        let r=Number(prompt("Enter rate of intrest: "));
+
+        let t=Number(prompt("Enter Time: "))
+
+        let si=(p*r*t)/100
+
+        alert("Simple Intrest: "+si)
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q23.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Create a JavaScript program to remove duplicate elements from an array.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 23. Create a JavaScript program to remove duplicate elements from an array. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let arr=[1,2,2,4,5,2];
+
+        let unique=[];
+
+        for(let i=0;i<arr.length;i++)
+        {
+            if(!unique.includes(arr[i]))
+            {
+                unique.push(arr[i]);
+            }
+        }
+
+        alert("After removing duplicates: "+unique)
+    </script>
+    
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q24.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Write a JavaScript program that takes marks as input and displays grade based on conditions.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 24. Write a JavaScript program that takes marks as input and displays grade 
+based on conditions.  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let marks= Number(prompt("Enter marks: "));
+
+        if(marks >= 75)
+    {
+        alert("Grade A")
+    }
+    else if(marks >= 50){
+        alert("Grade B")
+    }
+    else{
+        alert("Grade C")
+    }
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q25.
+[Language: JavaScript/HTML]
+
+QUESTION:
+Write a program to validate a form where:
+  - Name should not be empty
+  - Password must be at least 6 characters
+  - Email should contain '@'
+
+ANSWER (Code):
+------------------------------------------------------------
+<!-- 25. Write a program to validate a form where: 
+● Name should not be empty 
+● Password must be at least 6 characters 
+● Email should contain “@”  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        Name: <input type="text" id="name"><br><br>
+
+        Email: <input type="text" id="email"><br><br>
+
+        Passsword: <input type="password" id="pass">
+
+        <input type="submit" value="submit">
+    </form>
+
+    <script>
+        function validateForm()
+        {
+            let name=document.getElementById("name").value;
+
+            let email=document.getElementById("email").value;
+
+            let pass=document.getElementById("email").value;
+
+            if(name=="")
+            {
+                alert("name should not be empty");
+                return false;
+            }
+
+            if(pass.length<6)
+            {
+                alert("password must greater that 6 character..")
+                return false
+            }
+
+            if(!email.includes("@"))
+            {
+                alert("invalid email.")
+                return false;
+            }
+
+
+        }
+    </script>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q26.
+[Language: PHP]
+
+QUESTION:
+Develop a PHP-based student registration system where users can enter student details through an HTML form. Validate input data and store records in a database.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studnet Registration</title>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+
+    <form method="post">
+
+        Name:
+        <input type="text" name=name>
+        <br><br>
+
+        Email
+        <input type="text" name="email">
+        <br><br>
+
+        Mobile:
+        <input type="text" name="mobile">
+
+        Course:
+        <input type="text" name="course">
+
+        Gender:
+        <input type="radio" name="gender" value="male">Male 
+
+        <Input type="radio" name="gender" value="female">Female
+        <br><br>
+
+        <input type="submit" name="submit" value="register"> 
+
+        
+    </form>
+
+    <?php 
+
+        $conn = mysqli_connect("localhost","root","","studentdb");
+
+        if(isset($_POST['submit']))
+        {
+            $name = $_POST['name'];
+
+            $email = $_POST['email'];
+
+            $mobile = $_POST['mobile'];
+
+            $course = $_POST['course'];
+
+            $gender = $_POST['gender'];
+
+        
+
+        //validation
+
+        if($name=="" || $email == "" || $mobile == "" || $course == "" || $gender == "")
+            {
+            echo "<h3>All fields are required</h3>";
+            }
+        elseif(!filter_var($email,FILTER_VALIDATE_EMAIL))
+        {
+            echo "</h3>Invalid Email</h3>";
+        }
+        elseif(strlen($mobile) != 10)
+        {
+            echo "<h3>Mobile must be 10 digits</h3>";
+        }
+        else
+        {
+            $sql = "INSERT INTO students(name,email,mobile,course,gender)
+                    VALUES('$name','$email','$mobile','$course','$gender')";
+
+            if(mysqli_query($conn,$sql))
+            {
+                echo "<h3>Registration Successful</h3>";
+            }
+            else
+            {
+                echo "<h3>Error</h3>";
+            }
+        }
+        }
+
+        //Display students
+
+        $result = mysqli_query($conn ,"SELECT * FROM students");
+
+        echo "<h2>Register Students</h2>";
+
+        echo "<table border='1' cellpadding='10'>";
+
+        echo "<tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Course</th>
+                <th>Gender</th>
+            </tr>";
+
+        while($row = mysqli_fetch_assoc($result))
+        {
+            echo "<tr>";
+
+            echo "<td>".$row['id']."</td>";
+
+            echo "<td>".$row['name']."</td>";
+
+            echo "<td>".$row['email']."</td>";
+
+            echo "<td>".$row['mobile']."</td>";
+
+            echo "<td>".$row['course']."</td>";
+
+            echo "<td>".$row['gender']."</td>";
+
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    
+    
+    ?>
+</body>
+</html>
+------------------------------------------------------------
+
+================================================================================
+Q27.
+[Language: PHP]
+
+QUESTION:
+Create an online feedback form using PHP that collects user feedback and ratings.
+  Admin page (admin27.php) to view all feedbacks.
+
+ANSWER (Code):
+------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+</head>
+<body>
+    
+    <h2>Online Feedback</h2>
+
+    <form method="post">
+
+        Name:
+        <input type="text" name="name">
+        <br><br>
+
+        Email:
+        <input type="text" name="email">
+        <br><br>
+
+        Feedback:
+        <textarea name="message"></textarea>
+        <br><br>
+
+        Rating:
+        <select name="rating">
+            <option value="">select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br><br>
+
+        <input type="submit" name="submit" value="submit">
+
+    </form>
+
+
+    <?php
+    
+        $conn = mysqli_connect("localhost","root","","feedbackdb");
+
+        if(isset($_POST['submit']))
+        {
+            $name = $_POST['name'];
+
+            $email = $_POST['email'];
+
+            $message = $_POST['message'];
+
+            $rating = $_POST['rating'];
+        
+        if($name=="" || $email == "" || $message == "" || $rating == "")
+        {
+            echo "<h3>All fields are required</h3>";
+        }
+        else{
+            $sql = "INSERT INTO feedback(name,email,message,rating)
+                    VALUES('$name','$email','$message','$rating')";
+
+            if(mysqli_query($conn,$sql))
+            {
+                    echo "<h3>Thank You For Feedback</h3>";
+            }
+            else{
+                echo "<h3>Error</h3>";
+            }
+        }
+
+        }
+
+    ?>
+</body>
+</html>
+
+--- admin27.php ---
+<?php
+    $conn=mysqli_connect("localhost","root","","feedbackdb");
+
+    $result = mysqli_query($conn,"SELECT * FROM feedback");
+
+    echo "<h3> ALL Feedbacks </h3>";
+
+    echo "<table border='1' cellpadding='10'>";
+
+    echo "<tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Rating</th>
+        </tr>";
+
+    while($row=mysqli_fetch_assoc($result))
+    {
+        echo "<tr>";
+
+        echo "<td>".$row['id']."</td>";
+
+        echo "<td>".$row['name']."</td>";
+
+        echo "<td>".$row['email']."</td>";
+
+        echo "<td>".$row['message']."</td>";
+
+        echo "<td>".$row['rating']."</td>";
+
+        echo "</td>";
+    }
+
+    echo "</table>";
+?>
+------------------------------------------------------------
+
+================================================================================
+Q28.
+[Language: PHP]
+
+QUESTION:
+Design a PHP application for event registration where users can register for technical events.
+Requirements:
+  - Create event registration form
+  - Fields: Participant Name, College Name, Event Name, Contact Number
+  - Validate form inputs
+  - Store registrations in database
+  - Display confirmation message
+  - Show total registered participants
+
+NOTE: Code file not included in the provided ZIP for this question.
+
+================================================================================
+Q29.
+[Language: PHP]
+
+QUESTION:
+Develop a seminar event management system using PHP to manage seminar registrations.
+Requirements:
+  - Admin can add seminar details
+  - Students can register for seminars
+  - Store seminar date, topic, speaker name
+  - Display upcoming seminars
+  - Generate participant list
+  - Use MySQL database connectivity
+
+NOTE: Code file not included in the provided ZIP for this question.
+
+================================================================================
+Q30.
+[Language: PHP]
+
+QUESTION:
+Create a PHP application that performs bank transactions and handles exceptions.
+Requirements:
+  - Accept account balance and withdrawal amount
+  - Throw exception if withdrawal amount exceeds balance or negative amount entered
+  - Use try, catch, finally
+  - Display appropriate error messages
+
+NOTE: Code file not included in the provided ZIP for this question.
+
+================================================================================
+Q31.
+[Language: PHP]
+
+QUESTION:
+Develop a PHP login system with exception handling for invalid login attempts.
+Requirements:
+  - Create login form
+  - Validate username and password
+  - Throw exceptions for empty fields and invalid credentials
+  - Use custom exception messages
+  - Redirect valid users to dashboard
+
+NOTE: Code file not included in the provided ZIP for this question.
+
+================================================================================
+Q32.
+[Language: PHP]
+
+QUESTION:
+Create a PHP application to manage employee records using MySQL.
+Requirements:
+  - Connect PHP with MySQL
+  - Perform CRUD: Add, Update, Delete, View Employee
+  - Display records in table format
+  - Show database connection success/failure message
+
+NOTE: Code file not included in the provided ZIP for this question.
+
+================================================================================
+Q33.
+[Language: PHP]
+
+QUESTION:
+Develop a library management system using PHP and MySQL.
+Requirements:
+  - Database connection using mysqli/PDO
+  - Add new books
+  - Search books by title
+  - Issue and return books
+  - Display available books
+  - Maintain student and book records
+
+NOTE: Code file not included in the provided ZIP for this question.
+
+================================================================================
+Q34.
+[Language: PHP]
+
+QUESTION:
+Develop a PHP authentication system using sessions and cookies for secure login.
+Requirements:
+  - Login form with validation
+  - Use session for active login
+  - Use cookies for 'Remember User'
+  - Restrict access without login
+  - Logout functionality
+  - Display last login using cookies
+
+NOTE: Code file not included in the provided ZIP for this question.
+
+================================================================================
+Q35.
+[Language: PHP]
+
+QUESTION:
+Create an online examination portal where sessions maintain exam state and cookies store user preferences.
+Requirements:
+  - Student login system
+  - Maintain exam timer using session
+  - Store selected language/theme using cookies
+  - Prevent unauthorized access
+  - Submit answers and calculate marks
+  - Logout after exam completion
+
+NOTE: Code file not included in the provided ZIP for this question.
